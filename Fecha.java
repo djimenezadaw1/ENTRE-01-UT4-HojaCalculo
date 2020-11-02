@@ -2,14 +2,13 @@
 /**
  *  Modela una fecha
  *  
- *  @author - 
+ *  @author - Daniel Jiménez
  */
 public class Fecha
 {
     private int dia;
     private int mes;
     private int año;
-
     /**
      * constructor  
      */
@@ -73,9 +72,9 @@ public class Fecha
     /**
      * Devuelve una copia exacta al objeto actual
      */
-    public Fecha obtenerCopia() {
-         return null;
-
+    public Fecha obtenerCopia(){
+       Fecha fecha2 = new Fecha(getDia(), getMes(), getAño());
+       return fecha2;
     }
 
     /**

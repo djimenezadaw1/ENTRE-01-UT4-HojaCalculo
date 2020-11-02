@@ -5,7 +5,7 @@
  *  se anotan la fecha, los ingresos y los gastos correspondientes a un
  *  apunte  contable  de una empresa
  * 
- * @author - 
+ * @author - Daniel Jiménez
  *  
  */
 public class Fila
@@ -14,21 +14,25 @@ public class Fila
     private Fecha fecha;
     private double ingresos;
     private double gastos;
-
     /**
      * Constructor  
      */
-    public Fila(String id)    {
-         
+    public Fila(String id){
+        this.id = id;
+        this.ingresos = 0;
+        this.gastos = 0;
+        this.fecha = new Fecha(1, 1, 2020);
 
     }
 
     /**
      * Constructor  
      */
-    public Fila(String id, Fecha fecha, double ingresos, double gastos)    {
-        
-
+    public Fila(String id, Fecha fecha, double ingresos, double gastos){
+         this.id = id;
+         this.fecha = fecha;
+         this.ingresos = ingresos;
+         this.gastos = gastos;
     }
     
     /**
@@ -78,7 +82,8 @@ public class Fila
      * 
      */
     public Fila duplicar() {
-       return null;
+        Fila replicaFila = new Fila(getId(), getFecha(), getIngresos(),getGastos());
+        return replicaFila;
 
     }
 
@@ -87,9 +92,16 @@ public class Fila
      * (leer enunciado)
      */
     public String toString() {
-      return null;
-
+        double beneficio1= this.ingresos - this.gastos;
+        String resultado = String.format("%8s%15s%15.2f€%15.2f€%15.2f€", getId(), getFecha(), getIngresos(), getGastos(), beneficio1);
+        if(beneficio1 < 0){
+            resultado= resultado + "**";
+        }
+        return resultado;
+        
+         
     }
+    
 
      
 
